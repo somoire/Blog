@@ -88,12 +88,12 @@ def life():
 
     title = "Welcome to My Blog"
     return render_template('life.html',title=title,posts=posts,subscriber_form=form)
-@main.route("/culture",methods=['GET','POST'])
-def culture():
+@main.route("/sports",methods=['GET','POST'])
+def sports():
     """
     View root page function that returns the index page and its data
     """
-    posts = Post.query.filter_by(category="Culture").all()
+    posts = Post.query.filter_by(category="sports").all()
     form = SubscriberForm()
     if form.validate_on_submit():
         email = form.email.data
@@ -104,7 +104,7 @@ def culture():
         mail_message("Subscription Received","email/welcome_subscriber",new_subscriber.email,subscriber=new_subscriber)
 
     title = "Welcome to My Blog"
-    return render_template('culture.html',title=title,posts=posts,subscriber_form=form)
+    return render_template('sports.html',title=title,posts=posts,subscriber_form=form)
 
 @main.route("/fashion",methods=['GET','POST'])
 def fashion():
@@ -124,12 +124,12 @@ def fashion():
     title = "Welcome to My Blog"
     return render_template('fashion.html',title=title,posts=posts,subscriber_form=form)
 
-@main.route("/fatherhood",methods=['GET','POST'])
-def fatherhood():
+@main.route("/Cars",methods=['GET','POST'])
+def cars():
     """
     View root page function that returns the index page and its data
     """
-    posts = Post.query.filter_by(category="Fatherhood").all()
+    posts = Post.query.filter_by(category="Cars").all()
     form = SubscriberForm()
     if form.validate_on_submit():
         email = form.email.data
@@ -140,7 +140,7 @@ def fatherhood():
         mail_message("Subscription Received","email/welcome_subscriber",new_subscriber.email,subscriber=new_subscriber)
 
     title = "Welcome to My Blog"
-    return render_template('fatherhood.html',title=title,posts=posts,subscriber_form=form)
+    return render_template('cars.html',title=title,posts=posts,subscriber_form=form)
 
 @main.route("/food",methods=['GET','POST'])
 def food():
@@ -196,12 +196,12 @@ def tech():
     title = "Welcome to My Blog"
     return render_template('tech.html',title=title,posts=posts,subscriber_form=form)
 
-@main.route("/travel",methods=['GET','POST'])
-def travel():
+@main.route("/books",methods=['GET','POST'])
+def books():
     """
     View root page function that returns the index page and its data
     """
-    posts = Post.query.filter_by(category="Travel").all()
+    posts = Post.query.filter_by(category="Books").all()
     form = SubscriberForm()
     if form.validate_on_submit():
         email = form.email.data
@@ -212,4 +212,4 @@ def travel():
         mail_message("Subscription Received","email/welcome_subscriber",new_subscriber.email,subscriber=new_subscriber)
 
     title = "Welcome to My Blog"
-    return render_template('travel.html',title=title,posts=posts,subscriber_form=form)
+    return render_template('books.html',title=title,posts=posts,subscriber_form=form)
